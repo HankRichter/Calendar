@@ -2,35 +2,35 @@
 const currentDay = $("#currentDay");
 const textArea = $("textarea");
 const idNumber9 = $("#hour-9");
-const idNumber10 = $("#hour-10");
-const idNumber11 = $("#hour-11");
-const idNumber12 = $("#hour-12");
-const idNumber13 = $("#hour-13");
-const idNumber14 = $("#hour-14");
-const idNumber15 = $("#hour-15");
-const idNumber16 = $("#hour-16");
-const idNumber17 = $("#hour-17");
-idNumber9 = 9;
-idNumber10 = 10;
-idNumber11 = 11;
-idNumber12 = 12;
-idNumber13 = 13;
-idNumber14 = 14;
-idNumber15 = 15;
-idNumber16 = 16;
-idNumber17 = 17;
+let idNumber10 = $("#hour-10");
+let idNumber11 = $("#hour-11");
+let idNumber12 = $("#hour-12");
+let idNumber13 = $("#hour-13");
+let idNumber14 = $("#hour-14");
+let idNumber15 = $("#hour-15");
+let idNumber16 = $("#hour-16");
+let idNumber17 = $("#hour-17");
+idNumber9a = 9;
+// idNumber10 = 10;
+// idNumber11 = 11;
+// idNumber12 = 12;
+// idNumber13 = 13;
+// idNumber14 = 14;
+// idNumber15 = 15;
+// idNumber16 = 16;
+// idNumber17 = 17;
 
 // $(function () {)
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
-  if (idNumber9 == dayjs().hour()) {
-    textArea.addClass(".present");
-  } else if (idNumber9 > dayjs().hour()) {
-    textArea.addClass(".future");
+  if (idNumber9a == dayjs().hour()) {
+    idNumber9.addClass("present");
+  } else if (idNumber9a > dayjs().hour()) {
+    idNumber9.addClass("future");
   } else {
-    textArea.addClass(".future");
+    idNumber9.addClass("past");
   }
 });
 
@@ -56,7 +56,7 @@ $(function () {
 // TODO: Add code to display the current date in the header of the page.✅
 
 function displayTime() {
-  const rightNow = dayjs().format("MMM DD, YYYY");
+  let rightNow = dayjs().format("MMM DD, YYYY");
   currentDay.text(rightNow);
 }
 
