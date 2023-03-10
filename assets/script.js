@@ -6,12 +6,15 @@ const textArea = $("textarea");
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
-  if (idNumber9a == dayjs().hour()) {
-    idNumber9.addClass("present");
-  } else if (idNumber9a > dayjs().hour()) {
-    idNumber9.addClass("future");
-  } else {
-    idNumber9.addClass("past");
+  currentTime = dayjs().hour();
+  for (let i = 9; i < 18; i++) {
+    if (i < currentTime) {
+      $("#hour-" + i).addClass("past");
+    } else if (i > currentTime) {
+      $("#hour-" + i).addClass("future");
+    } else {
+      $("#hour-" + i).addClass("present");
+    }
   }
 });
 
