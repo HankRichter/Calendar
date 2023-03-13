@@ -41,6 +41,15 @@ function postToLocalStorage(e) {
     hourOfDay: parentEl.id,
     textOfId: textArea.value,
   };
+    if (calendarArray) {
+        calendarArray.push(calendarEntry);
+        localStorage.setItem("jq-calendar", JSON.stringify(calendarArray));
+    }else{
+        calendarArray = [];
+        calendarArray.push(calendarEntry);
+        console.log(calendarEntry);
+        localStorage.setItem("jq-calendar", JSON.stringify(calendarArray));
+      }
 }
 
 if(calendarArray !== null){
