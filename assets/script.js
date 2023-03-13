@@ -28,6 +28,25 @@ function displayTime() {
 
 displayTime();
 
+function postToLocalStorage(e) {
+  console.log(e.currentTarget.parentElement.id);
+  console.log(e);
+  const parentEl = document.querySelector(
+    "#" + e.currentTarget.parentElement.id
+  );
+  const textArea = parentEl.querySelector("textarea");
+  const mock = [];
+  console.log(parentEl);
+  console.log(textArea);
+  const calendarEntry = {
+    hourOfDay: parentEl.id,
+    textOfId: textArea.value,
+  };
+  console.log(calendarEntry);
+  mock.push(calendarEntry);
+  localStorage.setItem("jq-calendar", JSON.stringify(mock));
+}
+
 saveBtn.forEach((button) => {
   button.addEventListener("click", postToLocalStorage);
 });
