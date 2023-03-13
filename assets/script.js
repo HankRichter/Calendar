@@ -19,11 +19,6 @@ $(function () {
       $("#hour-" + i).addClass("present");
     }
   }
-  calenderItems.forEach((item) => {
-    const wrapper = $("#" + item.hourOfDay);
-    const textArea = $(wrapper).find("textarea");
-    console.log(textArea);
-  });
 });
 
 function displayTime() {
@@ -38,18 +33,14 @@ function postToLocalStorage(e) {
   console.log(e);
   const parentEl = document.querySelector(
     "#" + e.currentTarget.parentElement.id
-  );
+    );
   const textArea = parentEl.querySelector("textarea");
-  const mock = [];
   console.log(parentEl);
   console.log(textArea);
   const calendarEntry = {
     hourOfDay: parentEl.id,
     textOfId: textArea.value,
   };
-  console.log(calendarEntry);
-  mock.push(calendarEntry);
-  localStorage.setItem("jq-calendar", JSON.stringify(mock));
 }
 
 saveBtn.forEach((button) => {
