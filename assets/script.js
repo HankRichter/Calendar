@@ -19,6 +19,11 @@ $(function () {
       $("#hour-" + i).addClass("present");
     }
   }
+  calenderItems.forEach((item) => {
+    const wrapper = $("#" + item.hourOfDay);
+    const textArea = $(wrapper).find("textarea");
+    console.log(textArea);
+  });
 });
 
 function displayTime() {
