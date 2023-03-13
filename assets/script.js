@@ -1,8 +1,8 @@
 // Variables
 const currentDay = $("#currentDay");
 const saveBtn = document.querySelectorAll(".saveBtn");
-let calenderItems = JSON.parse(localStorage.getItem("jq-calender"));
-console.log(calenderItems);
+let calendarArray = JSON.parse(localStorage.getItem("jq-calendar"));
+console.log(calendarArray);
 
 // $(function () {)
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
