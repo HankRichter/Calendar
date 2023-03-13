@@ -43,6 +43,16 @@ function postToLocalStorage(e) {
   };
 }
 
+if(calendarArray !== null){
+  calendarArray.forEach((item) => {
+    const wrapper = document.querySelector("#" + item.hourOfDay);
+    console.log(wrapper);
+    const textArea = wrapper.querySelector("textarea");
+    console.log(textArea); 
+    textArea.value = item.textOfId
+  });
+}
+      
 saveBtn.forEach((button) => {
   button.addEventListener("click", postToLocalStorage);
 });
