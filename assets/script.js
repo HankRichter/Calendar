@@ -19,51 +19,50 @@ $(function () {
       $("#hour-" + i).addClass("present");
     }
   }
-});
 
-function displayTime() {
-  let rightNow = dayjs().format("MMM DD, YYYY");
-  currentDay.text(rightNow);
-}
+  function displayTime() {
+    let rightNow = dayjs().format("MMM DD, YYYY");
+    currentDay.text(rightNow);
+  }
 
-displayTime();
+  displayTime();
 
-function postToLocalStorage(e) {
   console.log(e.currentTarget.parentElement.id);
   console.log(e);
-  const parentEl = document.querySelector(
-    "#" + e.currentTarget.parentElement.id
+  function postToLocalStorage(e) {
+    const parentEl = document.querySelector(
+      "#" + e.currentTarget.parentElement.id
     );
-  const textArea = parentEl.querySelector("textarea");
   console.log(parentEl);
   console.log(textArea);
-  const calendarEntry = {
-    hourOfDay: parentEl.id,
-    textOfId: textArea.value,
-  };
+    const textArea = parentEl.querySelector("textarea");
+    const calendarEntry = {
+      hourOfDay: parentEl.id,
+      textOfId: textArea.value,
+    };
     if (calendarArray) {
-        calendarArray.push(calendarEntry);
-        localStorage.setItem("jq-calendar", JSON.stringify(calendarArray));
-    }else{
-        calendarArray = [];
-        calendarArray.push(calendarEntry);
         console.log(calendarEntry);
-        localStorage.setItem("jq-calendar", JSON.stringify(calendarArray));
-      }
-}
+      calendarArray.push(calendarEntry);
+      localStorage.setItem("jq-calendar", JSON.stringify(calendarArray));
+    } else {
+      calendarArray = [];
+      calendarArray.push(calendarEntry);
+      localStorage.setItem("jq-calendar", JSON.stringify(calendarArray));
+    }
+  }
 
-if(calendarArray !== null){
-  calendarArray.forEach((item) => {
-    const wrapper = document.querySelector("#" + item.hourOfDay);
     console.log(wrapper);
-    const textArea = wrapper.querySelector("textarea");
     console.log(textArea); 
-    textArea.value = item.textOfId
+  if (calendarArray !== null) {
+    calendarArray.forEach((item) => {
+      const wrapper = document.querySelector("#" + item.hourOfDay);
+      const textArea = wrapper.querySelector("textarea");
+      textArea.value = item.textOfId;
+    });
+  }
+  saveBtn.forEach((button) => {
+    button.addEventListener("click", postToLocalStorage);
   });
-}
-      
-saveBtn.forEach((button) => {
-  button.addEventListener("click", postToLocalStorage);
 });
 console.log(saveBtn);
 // TODO: Add a listener for click events on the save button. This code should
