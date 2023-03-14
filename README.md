@@ -6,7 +6,7 @@ This is an calendar app a user can save their events day to day in, it will hold
 
 ## Installation
 
-Run the URL() and then type within the time slots to add events. Then select the floppy disc to the right to save event in that time block.
+Run the URL(https://hankrichter.github.io/Calendar/) and then type within the time slots to add events. Then select the floppy disc to the right to save event in that time block.
 
 ## Usage
 
